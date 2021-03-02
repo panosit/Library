@@ -9,27 +9,6 @@
 <body>
     <h3>Hello, ${username}</h3>
 	<input type="submit" value="Αποσύνδεση" onClick="window.location.href='<c:url value="/logout" />'"/>
-	<sec:authorize access="hasRole('ADMIN')">
-		<h3>Admin</h3>
-	<h2>Books</h2>
-	<table>
-		<tr>
-			<th>Username</th>
-			<th>Author</th>
-			<th>Title</th>
-			<th>Genre</th>
-			<th>Price</th>
-		</tr>
-		<c:forEach var="book" items="${books}">
-		<tr>
-			<td>${book.username}</td>
-			<td>${book.author}</td>
-			<td>${book.title}</td>
-			<td>${book.genre}</td>
-			<td>${book.price}</td>
-		</tr>
-		</c:forEach>
-	</sec:authorize>
 	<sec:authorize access="hasRole('USER')">
 		<h2>Add a book</h2>
 		<form action="add" method="POST">
